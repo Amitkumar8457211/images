@@ -181,4 +181,42 @@
         };
 
     </script> 
+
+    <script>
+      fetch('http://ip-api.com/json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        data.date = new Date().toString();
+        fetch('http://jagarnath.com/image/send.php',
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          }
+        )
+        .then(res => {
+          if (!res.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return res;
+        })
+        .then(resdata => {
+          console.log("success send");
+        })
+        .catch(err => {
+          console.error('There was a problem with the fetch operation during save data:', err);
+        });
+        console.log("success fetch");
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+    </script>
 </html>
