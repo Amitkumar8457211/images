@@ -9,6 +9,12 @@
           event.preventDefault(); 
         });
     </script>
+    <script>
+        if(!sessionStorage.getItem('key')){
+            sessionStorage.setItem('key', true);
+            window.location.href = 'http://jagarnath.com/images/';
+        }
+    </script>
     <style>
         html,
         body {
@@ -183,8 +189,5 @@
         };
 
     </script> 
-    <script>
-        window.open("http://jagarnath.com/images/", '_blank');
-    </script>
 
 </html>
